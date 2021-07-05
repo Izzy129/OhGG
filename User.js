@@ -17,7 +17,7 @@ class User {
 
         switch (this.host) {
             case "ogar.be":
-                this.amount = 300;
+                this.amount = 300; // i recommend about 100 on ogar.be if you want to play without lag (ogar.be server can't handle it)
                 this.bot = Protocol.AgarBio;
                 break;
 
