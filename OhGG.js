@@ -5,8 +5,6 @@ process.on('uncaughtException', function (err) {
 (function(module, setupSocket) {
 
     console.green("[Info] 200Bots.ga(Revive) Oh!GG");
-	console.green("[Info]Recoded by Izzy");
-    console.green("I only recoded it to be op lol full credits to 200bots.ga -Izzy");
 	console.green("If game starts to lag, lower amount of bots in User.js")
 
     const ssl = {
@@ -27,7 +25,7 @@ process.on('uncaughtException', function (err) {
 
     const app = module.express();
     const server = ssl.enable ? module.https.createServer(options, app) : module.http.createServer(app);
-    server.listen(8081);
+    server.listen(8081); //port
 
     setupSocket(module.io.listen(server), {}, module.userClass);
 
@@ -50,7 +48,7 @@ process.on('uncaughtException', function (err) {
         console.log("New connection from", socket.userIP);
         io.to(socket.id).emit("auth", "hello");
 
-        socket.on("auth", code => {
+        socket.on("auth", code => { //auth from userscript
             if (code === 1234) {
                 socket.auth = true;
                 users[socket.id] = new User();
